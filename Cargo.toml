@@ -1,0 +1,94 @@
+[package]
+name = "onepiece"
+version = "0.1.0"
+authors = ["Samlet Wu <xiaofei.wu@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+difflib = "0.4.0"
+serde_json = "1.0"
+serde        = "1.0"
+serde_derive = "1.0"
+serde-pickle = "*"
+
+protoc-rust = "2.0"
+protobuf = { version = "2", features = ["with-bytes", "with-serde"] }
+#grpc            = "~0.6.1"
+#tls-api            = "0.1.*"
+#tls-api-native-tls = "0.1.*"
+#futures         = "~0.1"
+#futures-cpupool = "~0.1"
+httpbis         = { git = "https://github.com/stepancheg/rust-http2" }
+env_logger      = "~0.5"
+rust-stemmers = { git = "https://github.com/CurrySoftware/rust-stemmers" }
+#grpcio = "0.4"
+
+bytes = { version = "0.4", optional = true }
+time = "0.1.12"
+regex = "0.1.41"
+
+amiquip = "0.2"
+uuid = { version = "0.7", features = [ "v4" ] }
+log = "0.4"
+rand = "*"
+
+# ⊕ [greyblake/whatlang-rs: Natural language detection library for Rust. Try demo online: https://www.greyblake.com/whatlang/](https://github.com/greyblake/whatlang-rs)
+whatlang = "0.7.0"
+strsim = "0.9.0"
+fst = "0.3"
+fst-levenshtein = "0.2"
+fst-regex = "*"
+suffix = "1"
+
+tempdir = "0.3"
+tantivy = "0.9.1"
+# tantivy-jieba = "0.1.1"
+jieba-rs = "0.2"
+
+rayon = "1.0"
+#futures = "0.2"
+futures-preview = "0.3.0-alpha.14"
+#tokio = {version = "0.1.18", features = ["async-await-preview"]}
+#tokio = "0.1.19"
+#tokio-sync = "0.1"
+#tokio-async-await = "0.1"
+hyper = "0.12.8"
+tokio = { version = "0.1.18", features = ["async-await-preview"] }
+tokio-timer = "0.1"
+crossbeam = "0.7"
+crossbeam-utils = "0.6"
+crossbeam-deque = "0.7"
+threadpool = "1.7.1"
+
+zmq = "0.8"
+
+[patch.crates-io]
+tokio = { git = "https://github.com/tokio-rs/tokio" }
+tokio-async-await = { git = "https://github.com/tokio-rs/tokio" }
+
+[dev-dependencies]
+slog = "2.0"
+slog-async = "2.1"
+slog-stdlog = "3.0"
+slog-scope = "4.0"
+slog-term = "2.2"
+
+[[example]]
+name = "procs_log"
+path = "examples/common/procs_log.rs"
+
+[[example]]
+name = "procs_whatlang"
+path = "examples/nlp/procs_whatlang.rs"
+
+[[example]]
+name = "procs_strsim"
+path = "examples/nlp/procs_strsim.rs"
+
+[[example]]
+name = "fst"
+path = "examples/nlp/procs_fst.rs"
+
+[[example]]
+name = "suffix"
+path = "examples/nlp/procs_suffix.rs"

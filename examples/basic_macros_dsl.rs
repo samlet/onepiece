@@ -1,0 +1,21 @@
+//⊕ [DSL (Domain Specific Languages) - 通过例子学 Rust](https://rustwiki.org/zh-CN/rust-by-example/macros/dsl.html)
+//DSL 是 Rust 的宏中集成的微型 “语言”。这种语言是完全合法的，因为宏系统会把它转换 成普通的 Rust 语法树，它只不过看起来像是另一种语言而已。这就允许你为一些特定功能 创造一套简洁直观的语法（当然是有限制的）。
+
+macro_rules! calculate {
+    (eval $e:expr) => {{
+        {
+            let val: usize = $e; // 强制类型为整型
+            println!("{} = {}", stringify!{$e}, val);
+        }
+    }};
+}
+
+fn main() {
+    calculate! {
+        eval 1 + 2 // 看到了吧，`eval` 可并不是 Rust 的关键字！
+    }
+
+    calculate! {
+        eval (1 + 2) * (3 / 4)
+    }
+}
